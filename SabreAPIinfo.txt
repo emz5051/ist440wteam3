@@ -1,0 +1,9 @@
+Application:
+Kevin Wilkinson's App
+
+Key:
+V1:xuhavifpxtccfgmo:DEVCENTER:EXT
+
+Shared Secret:
+3DbTr6yR
+
