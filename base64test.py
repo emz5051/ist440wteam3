@@ -1,5 +1,3 @@
-from soaplib.client import make_service_client
-from jwtlogin import HelloService
 import jwt
 import base64
 
@@ -13,5 +11,8 @@ token = jwt.encode(payload, key, 'HS256')
 
 token = base64.urlsafe_b64encode(token)
 
-response = client.jwt(token)
-print response
+print token
+
+token = base64.urlsafe_b64decode(token)
+
+print token

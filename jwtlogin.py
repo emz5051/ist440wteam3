@@ -4,8 +4,8 @@ from soaplib.service import soapmethod
 from soaplib.serializers import primitive as soap_types
 import base64
 
-urls = ("jwt", "HelloService",
-        "jwt.wsdl", "HelloService",
+urls = ("/jwt", "HelloService",
+        "/jwt.wsdl", "HelloService",
         )
 render = web.template.Template("$def with (var)\n$:var")
 
