@@ -1,7 +1,6 @@
 import jwt
 import base64
 
-client = make_service_client('http://localhost:8080/jwt', HelloService())
 usr = raw_input("Enter your username: ")
 pswd = raw_input("Enter your password: ")
 
