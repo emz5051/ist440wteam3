@@ -2,20 +2,20 @@ import web
 from soaplib.wsgi_soap import SimpleWSGISoapApp
 from soaplib.service import soapmethod
 from soaplib.serializers import primitive as soap_types
+import base64
 
-urls = ("jwt", "HelloService",
-        "jwt.wsdl", "HelloService",
+urls = ("/jwt", "HelloService",
+        "/jwt.wsdl", "HelloService",
         )
 render = web.template.Template("$def with (var)\n$:var")
 
 
 class SoapService(SimpleWSGISoapApp):
 
-    @soapmethod(soap_types.String,soap_types.String,_returns=soap_types.String)
-    def jwt(self,username,password):
-        key = 'secret'
-        payload = {'usr':username,'pswd':password}
-        token = jwt.encode(payload, key, 'HS256')
+    @soapmethod(soap_types.String,_returns=soap_types.String)
+    def jwt(self,token):
+
+        token = base64.urlsafe_b64decode(token)
 
         return token
 
