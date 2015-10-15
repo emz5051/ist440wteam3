@@ -1,24 +1,25 @@
 import logging
+import datetime
 
-LOG_FILENAME = 'log.out'
+def login(usr, message):
+    LOG_FILENAME = 'log.out'
 
-FORMAT = "%(asctime)-15s %(clientip)s %(user)-8s %(message)s"
-logging.basicConfig(filename=LOG_FILENAME,
+    timenow = datetime.datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+
+    handler = ''
+
+    FORMAT = "%(message)s"
+    logging.basicConfig(filename=LOG_FILENAME,
                     level=logging.DEBUG,
-                    format=FORMAT,
+                    format=FORMAT
                     )
 
-d = {'clientip': '192.168.0.1', 'user': 'nfd5036'}
-logging.warning("Attempts: %s", "1", extra=d)
+    d = {'user': usr}
+    logging.info(timenow + " | User: " + usr + " Result: " + message)
 
-logging.debug('')
+    logging.debug('')
 
-f = open(LOG_FILENAME, 'rt')
-try:
-        body = f.read()
-finally:
-        f.close()
+    f = open(LOG_FILENAME, 'rt')
 
-print 'FILE:'
-print body
+    f.close()
 

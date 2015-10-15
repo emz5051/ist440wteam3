@@ -15,8 +15,6 @@ class SoapService(SimpleWSGISoapApp):
     @soapmethod(soap_types.String,_returns=soap_types.String)
     def jwt(self,token):
 
-        token = base64.urlsafe_b64decode(token)
-
         return token
 
 class HelloService(SoapService):
