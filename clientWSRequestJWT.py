@@ -13,7 +13,7 @@ import base64
 import datetime
 import sys
 
-client = make_service_client('http://localhost:8080/jwt', HelloService())
+client = make_service_client('http://localhost:8080/webtoken', HelloService())
 
 key = 'secret'
 exp = datetime.datetime.now() + datetime.timedelta(days=1)
