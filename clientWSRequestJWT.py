@@ -13,6 +13,7 @@ import base64
 import datetime
 import sys
 import log
+import traceback
 
 client = make_service_client('http://localhost:8080/webtoken', HelloService())
 
