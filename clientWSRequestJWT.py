@@ -22,8 +22,13 @@ payload = {'usr':"test",'exp':exp}
 
 token = jwt.encode(payload, key, 'HS256')
 
-token = base64.urlsafe_b64encode(token)
+try:
+    response = client.webtoken(token)
+except:
+        e = sys.exc_info()[0]
+        print e
+        log.error(e)
+        print 'error'
 
-response = client.webtoken(token)
 print response
 
