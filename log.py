@@ -40,7 +40,7 @@ def error(e):
                     format=FORMAT
                     )
     
-    logging.error(timenow + " | Error: " + e)
+    logging.error(timenow + " | Error: " + type(e).__name__)
 
     f = open(LOG_FILENAME, 'rt')
   
