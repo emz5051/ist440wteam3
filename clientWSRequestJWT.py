@@ -3,7 +3,7 @@
     Purpose: Client side JWT handling
     Course: IST 440W
     Date: 11/3/2015
-    Revision: 1
+    Revision: 2
 """
 
 from soaplib.client import make_service_client
