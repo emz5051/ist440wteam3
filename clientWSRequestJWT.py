@@ -24,6 +24,6 @@ token = jwt.encode(payload, key, 'HS256')
 
 token = base64.urlsafe_b64encode(token)
 
-response = client.jwt(token)
+response = client.webtoken(token)
 print response
 

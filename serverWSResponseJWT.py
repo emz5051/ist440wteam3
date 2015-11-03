@@ -9,8 +9,8 @@
 from soaplib.serializers import primitive as soap_types
 import base64
 
-urls = ("/jwt", "HelloService",
-        "/jwt.wsdl", "HelloService",
+urls = ("/webtoken", "HelloService",
+        "/webtoken.wsdl", "HelloService",
         )
 render = web.template.Template("$def with (var)\n$:var")
 
@@ -18,7 +18,7 @@ render = web.template.Template("$def with (var)\n$:var")
 class SoapService(SimpleWSGISoapApp):
 
     @soapmethod(soap_types.String,_returns=soap_types.String)
-    def jwt(self,token):
+    def webtoken(self,token):
 
         return token
 
