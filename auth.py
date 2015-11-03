@@ -1,3 +1,11 @@
+"""
+    Author: Ethan Zavaglia
+    Purpose: Client side kerberos authentication
+    Course: IST 440W
+    Date: 11/3/2015
+    Revision: 1
+"""
+
 import os
 import subprocess
 import jwtHandler
@@ -23,9 +31,7 @@ def signin(usr):
 
     if cred == 0:
         print "You are authorized"
-        token = jwtHandler.jwtEncode(usr)
-        print token
-        log.login(usr, 'Login Successful')
+        log.login("Kerberos", usr, 'Login Successful')
     if cred == 1:
         print "No Ticket Found. Please try again."
-        log.login(usr, 'Login Failed')
+        log.login("Kerberos", usr, 'Login Failed')

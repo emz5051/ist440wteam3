@@ -1,7 +1,9 @@
 """
     Author: Ethan Zavaglia
+    Purpose: Make a request to be authorized with kerberos
+    Course: IST 440W
     Date: 11/3/2015
-    Project: NFL Predictive Solution
+    Revision: 1
 """
 
 import auth
