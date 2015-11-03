@@ -1,0 +1,10 @@
+DELIMITER //
+
+USE NFL_Predictions
+CREATE PROCEDURE proc_TopWR
+BEGIN
+	SELECT PlayerFN, PlayerLN, PlayerRank, TeamNameAbbr
+	FROM tblRoster
+		WHERE Position=WR AND PlayerRanking <=10;
+END //
+DELIMITER ;

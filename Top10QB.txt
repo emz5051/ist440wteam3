@@ -1,0 +1,11 @@
+DELIMITER //
+
+USE NFL_Predictions
+CREATE PRROCEDURE proc_TopQB
+BEGIN
+	SELECT PlayerFN, PlayerLN, PlayerRank, TeamNameAbbr
+	FROM tblRoster
+		WHERE Position=QB AND PlayerRank <=10;
+END //
+DELIMITER ;
+

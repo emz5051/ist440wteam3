@@ -1,0 +1,10 @@
+DELIMITER // 
+
+USE NFL_Predictions
+CREATE PROCEDURE proc_NFLTeams
+BEGIN
+	SELECT TeamNameAbbr, TeamRanking
+	FROM tblTeam;
+END //
+
+DELIMITER ;

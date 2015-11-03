@@ -1,0 +1,11 @@
+DELIMITER //
+
+USE NFL_Predictions
+CREATE PROCEDURE proc_Top10Teams
+BEGIN
+	SELECT TeamNameAbbr, TeamRanking
+	FROM tblTeam
+		WHERE TeamRanking <=1 0
+END//
+
+DELIMITER;
