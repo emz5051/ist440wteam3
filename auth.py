@@ -13,20 +13,19 @@ def kcheck():
 
     return output
 
-usr = raw_input("Enter your username: ")
+def signin(usr):
+    o = subprocess.call(["kinit",  usr])
 
-o = subprocess.call(["kinit",  usr])
+    if o == 1:
+        subprocess.call("kdestroy", stdout=FNULL)
 
-if o == 1:
-    subprocess.call("kdestroy", stdout=FNULL)
+    cred = kcheck()
 
-cred = kcheck()
-
-if cred == 0:
-    print "You are authorized"
-    token = jwtHandler.jwtEncode(usr, "test1")
-    print token
-    log.login(usr, 'Login Successful')
-if cred == 1:
-    print "No Ticket Found. Please try again."
-    log.login(usr, 'Login Failed')
+    if cred == 0:
+        print "You are authorized"
+        token = jwtHandler.jwtEncode(usr)
+        print token
+        log.login(usr, 'Login Successful')
+    if cred == 1:
+        print "No Ticket Found. Please try again."
+        log.login(usr, 'Login Failed')

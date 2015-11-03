@@ -1,3 +1,9 @@
+"""
+    Author: Ethan Zavaglia
+    Date: 11/3/2015
+    Project: NFL Predictive Solution
+"""
+
 import auth
 import sys
 
