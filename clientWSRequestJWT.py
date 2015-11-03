@@ -26,9 +26,8 @@ token = jwt.encode(payload, key, 'HS256')
 
 try:
     response = client.webtoken(token)
+    print response
 except Exception as e:
         log.error(traceback.format_exc())
         print 'error'
-
-print response
 
