@@ -7,7 +7,7 @@
 """
 
 from soaplib.client import make_service_client
-from jwtlogin import HelloService
+from serverWSResponseJWT import HelloService
 import jwt
 import base64
 import datetime
