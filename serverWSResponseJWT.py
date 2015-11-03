@@ -6,6 +6,9 @@
     Revision: 1
 """
 
+import web
+from soaplib.wsgi_soap import SimpleWSGISoapApp
+from soaplib.service import soapmethod
 from soaplib.serializers import primitive as soap_types
 import base64
 
