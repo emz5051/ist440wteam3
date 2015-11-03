@@ -1,3 +1,11 @@
+"""
+    Author: Ethan Zavaglia
+    Purpose: Client side kerberos authentication
+    Course: IST 440W
+    Date: 11/3/2015
+    Revision: 1
+"""
+
 import os
 import subprocess
 import jwtHandler
@@ -13,20 +21,17 @@ def kcheck():
 
     return output
 
-usr = raw_input("Enter your username: ")
+def signin(usr):
+    o = subprocess.call(["kinit",  usr])
 
-o = subprocess.call(["kinit",  usr])
+    if o == 1:
+        subprocess.call("kdestroy", stdout=FNULL)
 
-if o == 1:
-    subprocess.call("kdestroy", stdout=FNULL)
+    cred = kcheck()
 
-cred = kcheck()
-
-if cred == 0:
-    print "You are authorized"
-    token = jwtHandler.jwtEncode(usr, "test1")
-    print token
-    log.login(usr, 'Login Successful')
-if cred == 1:
-    print "No Ticket Found. Please try again."
-    log.login(usr, 'Login Failed')
+    if cred == 0:
+        print "You are authorized"
+        log.login("Kerberos", usr, 'Login Successful')
+    if cred == 1:
+        print "No Ticket Found. Please try again."
+        log.login("Kerberos", usr, 'Login Failed')

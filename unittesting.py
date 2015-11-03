@@ -1,5 +1,6 @@
 import unittest
 import auth
+import jwtHandler
 
 class TestLoginMethods(unittest.TestCase):
 

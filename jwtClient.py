@@ -1,3 +1,9 @@
+"""
+    Author: Ethan Zavaglia
+    Date: 11/3/2015
+    Project: NFL Predictive Solution
+"""
+
 from soaplib.client import make_service_client
 from jwtlogin import HelloService
 import jwt
